@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding: 1rem;
 }
 
 .App-logo {
@@ -13,15 +14,27 @@
   }
 }
 
-.App-header {
+.Gifs-search {
+  padding: 1rem;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+img{
+  margin: .5rem;
+  flex-grow: 0;
+  width: 30%;
+}
+
+button{
+  font-size: 40px;
 }
 
 .App-link {
