@@ -27,23 +27,8 @@
   color: white;
 }
 
-figure{
-  flex-grow: 0;
-  margin: .5rem;
-  width: 30%;
-}
 
-img{
-  margin: .5rem 0;
-  flex-grow: 0;
-  width: 100%;
-}
-
-figcaption{
-  font-size: small;
-}
-
-button{
+button {
   font-size: 40px;
 }
 
@@ -55,6 +40,7 @@ button{
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
