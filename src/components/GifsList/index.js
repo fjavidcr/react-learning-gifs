@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react"
-import Gif from './Gif'
-import GhipyApi from '../services/GhipyApi';
+import Gif from '../Gif'
+import GhipyApi from '../../services/GhipyApi';
 
-export default function GifsList ({ params }) {
-
-  const { keyword = 'not found'} = params
+export default function GifsList ({ keyword }) {
+  
   const [gifs, setGifs] = useState([])
 
   useEffect(function () {
