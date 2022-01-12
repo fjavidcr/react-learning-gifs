@@ -2,8 +2,9 @@ import { useState, useEffect } from "react"
 import Gif from './Gif'
 import GhipyApi from '../services/GhipyApi';
 
-export default function GifsList ({ keyword }) {
+export default function GifsList ({ params }) {
 
+  const { keyword = 'not found'} = params
   const [gifs, setGifs] = useState([])
 
   useEffect(function () {
@@ -14,12 +15,16 @@ export default function GifsList ({ keyword }) {
     }).then( gifs => setGifs(gifs))
   }, [keyword]) // [] significa que no tiene dependencias y solo se ejecuta una vez
 
-  return gifs.map( ({id, title, url}) =>
-    <Gif 
-      id={id} 
-      title={title} 
-      url={url}
-      key={id}
-    />
-  )
+  return <>
+    {
+      gifs.map( ({id, title, url}) =>
+        <Gif 
+          id={id} 
+          title={title} 
+          url={url}
+          key={id}
+        />
+      )
+    }
+  </>
 }
