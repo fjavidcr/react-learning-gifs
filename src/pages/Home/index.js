@@ -1,14 +1,17 @@
 import React, { useState } from "react"
-import { Link } from 'wouter'
+import { Link, useLocation } from 'wouter'
+import './Home.css'
 
 const POPULAR_GIFS = ["Marvel", "Ironman", "Capitan America", "Dr Strange"]
 
 export default function Home () {
   const [keyword, setKeyword] = useState('')
-
+  const [path, pushLocation] = useLocation()
+  console.log(path)
+  
   const handleSubmit = event => {
     event.preventDefault()
-    console.log(keyword)
+    pushLocation(`/search/${keyword}`)
   }
 
   const handleChange = event => {
@@ -18,7 +21,7 @@ export default function Home () {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input onChange={handleChange} type='text' value={keyword} placeholder="Busca tus gifs favoritos..."/>
+        <input onChange={handleChange} type='text' value={keyword} placeholder="Search a gif here ..."/>
       </form>
       <h3 className="App-title">Los gifs más populares</h3>
       <ul>
