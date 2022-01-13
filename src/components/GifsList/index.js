@@ -1,19 +1,7 @@
-import { useState, useEffect } from "react"
+// import React from 'react'
 import Gif from '../Gif'
-import GhipyApi from '../../services/GhipyApi';
 
-export default function GifsList ({ keyword }) {
-  
-  const [gifs, setGifs] = useState([])
-
-  useEffect(function () {
-    console.log('fetch gifs');
-    GhipyApi.getGifs({
-      keyword,
-      limit: 12
-    }).then( gifs => setGifs(gifs))
-  }, [keyword]) // [] significa que no tiene dependencias y solo se ejecuta una vez
-
+export default function GifsList ({ gifs }) {
   return <>
     {
       gifs.map( ({id, title, url}) =>
