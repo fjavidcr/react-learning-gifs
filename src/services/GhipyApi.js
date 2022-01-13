@@ -1,9 +1,8 @@
-import { API_KEY } from '../constants';
+import { API_KEY, API_HOST } from '../constants';
 
-const API_HOST = 'https://api.giphy.com/v1/gifs/search'
 
 function getGifs({ keyword = 'marvel', limit = 20 } = {}) {
-  const apiURL = API_HOST + `?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=0&rating=g&lang=en`
+  const apiURL = API_HOST + `/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=0&rating=g&lang=en`
 
   return fetch(apiURL)
     .then(res => res.json())
@@ -18,8 +17,20 @@ function getGifs({ keyword = 'marvel', limit = 20 } = {}) {
     })
 }
 
+function getTrendingTerms() {
+  const apiURL = API_HOST + `/trending/searches?api_key=${API_KEY}&rating=g&lang=en`
+
+  return fetch(apiURL)
+    .then(res => res.json())
+    .then(response => {
+      const {data = []} = response // = [] es valor por defecto y response es undefined
+      return data
+    })
+}
+
 const GhifyApi = {
-  getGifs
+  getGifs,
+  getTrendingTerms
 }
 
 export default GhifyApi
