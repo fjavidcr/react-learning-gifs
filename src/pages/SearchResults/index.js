@@ -11,6 +11,7 @@ export default function SearchResults ({ params }) {
     {
       loading ? "loading..." :
       <section className="Gifs-search">
+        <h3 className="App-title">{keyword}</h3>
         <GifsList gifs={gifs} />
       </section>
     }
