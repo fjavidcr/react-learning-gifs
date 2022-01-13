@@ -7,7 +7,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 
@@ -35,6 +35,20 @@ button {
 
 .App-link {
   color: #61dafb;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 200;
+  font-size: 3em;
+}
+
+.App-title {
+  font-size: 24px;
+}
+
+ul {
+  list-style-type: none;
 }
 
 @keyframes App-logo-spin {
